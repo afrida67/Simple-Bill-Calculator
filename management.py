@@ -74,11 +74,11 @@ def count():
     else:
         drinksCost = float(drinks.get())
                 
-    costOfPasta = pastaCost * 10
-    costOfDrinks = drinksCost * 10
-    costOfNoodles = noodlesCost * 10
-    costOfSoup = soupCost * 10
-    costOfBurger = burgerCost * 10
+    costOfPasta = pastaCost * 350
+    costOfDrinks = drinksCost * 25
+    costOfNoodles = noodlesCost * 250
+    costOfSoup = soupCost * 90
+    costOfBurger = burgerCost * 120
 
 
     costOfMeal = "Rs", str ('%.2f' % (costOfPasta + costOfDrinks + costOfNoodles + costOfSoup + costOfBurger))
@@ -95,6 +95,21 @@ def count():
     vat.set(paidVat)
     subTotal.set(costOfMeal)
     total.set(overAllCost)
+
+   # bxVat = Entry(f1, font=('arial',16,'bold'),textvariable=cost,bd=10,insertwidth=2,bg="#B9F6CA",justify='right')
+    #bxVat.grid(row=2,column=0)
+
+    def show():
+        roo = Tk()
+        roo.geometry("200x120")
+        roo.title("")
+        lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Check Your Bill", fg="black", bd=5)
+        lblinfo.grid(row=0, column=0)
+        bxVat = Label(roo, font=('aria', 15, 'bold'), textvariable=cost.get(costOfMeal), fg="black", bd=5)
+        bxVat.grid(row=2,column=0)
+        roo.mainloop()
+
+    show()
     
 def qExit():
     root.destroy()
