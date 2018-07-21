@@ -18,7 +18,7 @@ f1.pack(side=LEFT)
 #==============================Time======================================#
 localtime = time.asctime(time.localtime(time.time()))
 
-titleInfo = Label(Tops,font=('helvetica',30,'bold'),text="Harry Potter Restaurant",fg="Black",bd=10,anchor='w')
+titleInfo = Label(Tops,font=('helvetica',30,'bold'),text="Harry Potter Restaurant",fg="#FF6F00",bd=10,anchor='w')
 titleInfo.grid(row=0,column=0)
 
 timeInfo=Label(Tops,font=('arial',20,'bold'),text=localtime,fg="Steel Blue",bd=10,anchor='w')
@@ -43,6 +43,7 @@ total = StringVar()
 vat = StringVar()
 cost = StringVar()
 
+#===================================functionalities==============================================# 
 def count():
     x=random.randint(10,50)
     randomRef=str(x)
@@ -80,20 +81,20 @@ def count():
     costOfBurger = burgerCost * 10
 
 
-    CostofMeal = "Rs", str ('%.2f' % (costOfPasta + costOfDrinks + costOfNoodles + costOfSoup + costOfBurger))
+    costOfMeal = "Rs", str ('%.2f' % (costOfPasta + costOfDrinks + costOfNoodles + costOfSoup + costOfBurger))
 
     payVat = ((costOfPasta + costOfDrinks + costOfNoodles + costOfSoup + costOfBurger) * 0.15)
 
-    TotalCost = (costOfPasta + costOfDrinks + costOfNoodles + costOfSoup + costOfBurger)
+    totalCost = (costOfPasta + costOfDrinks + costOfNoodles + costOfSoup + costOfBurger)
 
-    OverAllCost = "Rs", str ('%.2f' % (payVat + TotalCost))
+    overAllCost = "Rs", str ('%.2f' % (payVat + totalCost))
 
     paidVat = "Rs", str ('%.2f' % payVat)
 
-    cost.set(CostofMeal)
+    cost.set(costOfMeal)
     vat.set(paidVat)
-    subTotal.set(CostofMeal)
-    total.set(OverAllCost)
+    subTotal.set(costOfMeal)
+    total.set(overAllCost)
     
 def qExit():
     root.destroy()
@@ -115,77 +116,116 @@ def reset():
 
 pastaLabel = Label(f1, font=('arial', 16, 'bold'),text="Pasta", bd=16,anchor="w")
 pastaLabel.grid(row=1, column=0)
-bxPasta = Entry(f1, font=('arial',16,'bold'),textvariable = pasta, bd=10, insertwidth=4,bg="powder blue",justify='right')
+bxPasta = Entry(f1, font=('arial',16,'bold'),textvariable = pasta, bd=10, insertwidth=4,bg="#B9F6CA",justify='right')
 bxPasta.grid(row=1,column=1)
 
 
 noodlesLabel = Label(f1, font=('arial', 16, 'bold'),text="Chowmein",bd=16,anchor="w")
 noodlesLabel.grid(row=2, column=0)
-bxNoodles=Entry(f1, font=('arial',16,'bold'),textvariable=noodles,bd=10,insertwidth=4,bg="powder blue",justify='right')
+bxNoodles=Entry(f1, font=('arial',16,'bold'),textvariable=noodles,bd=10,insertwidth=4,bg="#B9F6CA",justify='right')
 bxNoodles.grid(row=2,column=1)
 
 
 soupLabel = Label(f1, font=('arial', 16, 'bold'),text="Soup",bd=16,anchor="w")
 soupLabel.grid(row=3, column=0)
-bxSoup=Entry(f1, font=('arial',16,'bold'),textvariable=soup,bd=10,insertwidth=4,bg="powder blue",justify='right')
+bxSoup=Entry(f1, font=('arial',16,'bold'),textvariable=soup,bd=10,insertwidth=4,bg="#B9F6CA",justify='right')
 bxSoup.grid(row=3,column=1)
 
 burgerLabel = Label(f1, font=('arial', 16, 'bold'),text="Burger",bd=16,anchor="w")
 burgerLabel.grid(row=4, column=0)
-bxBurger=Entry(f1, font=('arial',16,'bold'),textvariable=burger,bd=10,insertwidth=4,bg="powder blue",justify='right')
+bxBurger=Entry(f1, font=('arial',16,'bold'),textvariable=burger,bd=10,insertwidth=4,bg="#B9F6CA",justify='right')
 bxBurger.grid(row=4,column=1)
 
 drinksLabel = Label(f1, font=('arial', 16, 'bold'),text="Drinks",bd=16,anchor="w")
 drinksLabel.grid(row=5, column=0)
-bxDrinks=Entry(f1, font=('arial',16,'bold'),textvariable=drinks,bd=10,insertwidth=4,bg="powder blue",justify='right')
+bxDrinks=Entry(f1, font=('arial',16,'bold'),textvariable=drinks,bd=10,insertwidth=4,bg="#B9F6CA",justify='right')
 bxDrinks.grid(row=5,column=1)
 
 #===================================Total Price===================================#
 
 
 orderLabel = Label(f1, font=('arial', 16, 'bold'),text="Order No",bd=16,anchor="w")
-orderLabel.grid(row=1, column=2)
-bxOrder = Entry(f1, font=('arial',16,'bold'),textvariable=rand, bd=10, insertwidth=4, bg="powder blue",justify='right')
-bxOrder.grid(row=1,column=3)
+orderLabel.grid(row=1, column=4)
+bxOrder = Entry(f1, font=('arial',16,'bold'),textvariable=rand, bd=10, insertwidth=4, bg="#B9F6CA",justify='right')
+bxOrder.grid(row=1,column=5)
 
 costLabel = Label(f1, font=('arial', 16, 'bold'),text="Cost of Meal",bd=16,anchor="w")
-costLabel.grid(row=2, column=2)
-bxCost=Entry(f1, font=('arial',16,'bold'),textvariable=cost,bd=10,insertwidth=4,bg="powder blue",justify='right')
-bxCost.grid(row=2,column=3)
+costLabel.grid(row=2, column=4)
+bxCost=Entry(f1, font=('arial',16,'bold'),textvariable=cost,bd=10,insertwidth=4,bg="#B9F6CA",justify='right')
+bxCost.grid(row=2,column=5)
 
 
 vatLabel = Label(f1, font=('arial', 16, 'bold'),text="15% Vat",bd=16,anchor="w")
-vatLabel.grid(row=3, column=2)
-bxVat = Entry(f1, font=('arial',16,'bold'),textvariable=vat,bd=10,insertwidth=4,bg="powder blue",justify='right')
-bxVat.grid(row=3,column=3)
+vatLabel.grid(row=3, column=4)
+bxVat = Entry(f1, font=('arial',16,'bold'),textvariable=vat,bd=10,insertwidth=4,bg="#B9F6CA",justify='right')
+bxVat.grid(row=3,column=5)
 
 subTotalLabel = Label(f1, font=('arial', 16, 'bold'),text="Sub Total",bd=16,anchor="w")
-subTotalLabel.grid(row=4, column=2)
-bxSubTotal=Entry(f1, font=('arial',16,'bold'),textvariable=subTotal,bd=10,insertwidth=4,bg="powder blue",justify='right')
-bxSubTotal.grid(row=4,column=3)
+subTotalLabel.grid(row=4, column=4)
+bxSubTotal=Entry(f1, font=('arial',16,'bold'),textvariable=subTotal,bd=10,insertwidth=4,bg="#B9F6CA",justify='right')
+bxSubTotal.grid(row=4,column=5)
 
 totalCostLabel = Label(f1, font=('arial', 16, 'bold'),text="Total Cost",bd=16,anchor="w")
-totalCostLabel.grid(row=5, column=2)
-bxTotalCost=Entry(f1, font=('arial',16,'bold'),textvariable=total,bd=10,insertwidth=4,bg="powder blue",justify='right')
-bxTotalCost.grid(row=5,column=3)
+totalCostLabel.grid(row=5, column=4)
+bxTotalCost=Entry(f1, font=('arial',16,'bold'),textvariable=total,bd=10,insertwidth=4,bg="#B9F6CA",justify='right')
+bxTotalCost.grid(row=5,column=5)
 
 #menu#
+'''
 lblTest= Label(f1, font=('arial', 16, 'bold'),text="burger",bd=16,anchor="w")
 lblTest.grid(row=5, column=4)
+'''
 
 #==========================================Buttons================================#
-btnTotal = Button(f1,padx=16,pady=8,bd=16,fg="black",font=('arial',16,'bold'),width=10,text="Total",bg="powder blue",command=count).grid(row=7,column=1)
+btnTotal = Button(f1,padx=16,pady=8,bd=16,fg="black",font=('arial',16,'bold'),width=10,text="Total",bg="#F44336",command=count).grid(row=7,column=2)
 
-btnReset = Button(f1,padx=16,pady=8,bd=16,fg="black",font=('arial',16,'bold'),width=10,text="Reset",bg="powder blue",command=reset).grid(row=7,column=2)
+btnReset = Button(f1,padx=16,pady=8,bd=16,fg="black",font=('arial',16,'bold'),width=10,text="Reset",bg="powder blue",command=reset).grid(row=7,column=3)
 
-btnExit = Button(f1,padx=16,pady=8,bd=16,fg="black",font=('arial',16,'bold'),width=10,text="Exit",bg="powder blue",command=qExit).grid(row=7,column=3)
+btnExit = Button(f1,padx=16,pady=8,bd=16,fg="black",font=('arial',16,'bold'),width=10,text="Exit",bg="#F44336",command=qExit).grid(row=7,column=4)
 
+#==========================================Menu Price================================#
 
-'''imgpath = 'd.png'
+def price():
+    roo = Tk()
+    roo.geometry("600x220")
+    roo.title("Price List")
+
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Food Items", fg="black", bd=5)
+    lblinfo.grid(row=0, column=0)
+    lblinfo = Label(roo, font=('aria', 15,'bold'), text="           ", fg="white", anchor=W)
+    lblinfo.grid(row=0, column=2)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Price", fg="black", anchor=W)
+    lblinfo.grid(row=0, column=3)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Baked Pasta", fg="steel blue", anchor=W)
+    lblinfo.grid(row=1, column=0)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="350 Tk", fg="steel blue", anchor=W)
+    lblinfo.grid(row=1, column=3)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Chowmein", fg="steel blue", anchor=W)
+    lblinfo.grid(row=2, column=0)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="250 Tk", fg="steel blue", anchor=W)
+    lblinfo.grid(row=2, column=3)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Soup", fg="steel blue", anchor=W)
+    lblinfo.grid(row=3, column=0)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="90 Tk", fg="steel blue", anchor=W)
+    lblinfo.grid(row=3, column=3)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Burger", fg="steel blue", anchor=W)
+    lblinfo.grid(row=4, column=0)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="120 Tk", fg="steel blue", anchor=W)
+    lblinfo.grid(row=4, column=3)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="Drinks", fg="steel blue", anchor=W)
+    lblinfo.grid(row=5, column=0)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="25 Tk", fg="steel blue", anchor=W)
+    lblinfo.grid(row=5, column=3)
+
+    roo.mainloop()
+
+igm = PhotoImage(file="menu.png")
+btnprice = Button(root, image=igm, command=price).pack()
+
+#==========================================Picture================================#
+imgpath = "aa.png"
 img = PhotoImage(file=imgpath)
 panel = Label(root, image = img)
-panel.pack(side = "bottom", fill = "both", expand = "yes")'''
+panel.place(x = 476, y = 205)
 
 root.mainloop()
-
-
